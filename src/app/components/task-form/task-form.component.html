@@ -1,1 +1,35 @@
-<p>task-form works!</p>
+<form (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Titre</mat-label>
+    <input matInput name="titre" [(ngModel)]="task.title" required>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+  <mat-label>Description</mat-label>
+    <textarea matInput name="Description" [(ngModel)]="task.description" required ></textarea>
+
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+  <mat-label>Début</mat-label>
+    <input matInput name="debut" type="datetime-local" [(ngModel)]="task.startDateTime" required>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>fin</mat-label>
+      <input matInput name="fin" type="datetime-local" [(ngModel)]="task.endDateTime" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>
+        Etat:
+      </mat-label>
+      <select matNativeControl name="etat" [(ngModel)]="task.status">
+        <option value="EN_ATTENTE"> En attente</option>
+        <option value="EN_COURS"> En cours</option>
+        <option value="FAITE"> Faite</option>
+      </select>
+    </mat-form-field>
+    <br>
+     <button mat-raised-button color="primary" type="submit">Enregister</button>
+</form>
