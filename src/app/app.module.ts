@@ -16,6 +16,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import { TaskFormComponent } from './components/task-form/task-form.component';
 import { TaskListComponent } from './components/task-list/task-list.component';
 import { TaskItemComponent } from './components/task-item/task-item.component';
+import { GestionProduitModule } from './gestion-produit/gestion-produit.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import { TaskItemComponent } from './components/task-item/task-item.component';
     MatFormFieldModule,
     MatSelectModule,
     MatButtonModule,
-    DragDropModule
+    DragDropModule,
+    GestionProduitModule
 
   ],
   providers: [

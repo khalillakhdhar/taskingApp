@@ -1,0 +1,30 @@
+<h5>Produit</h5>
+<form   #produitForm="ngForm"  (ngSubmit)="save()">
+    <mat-form-field>
+      <mat-label>Titre</mat-label>
+      <input matInput name="titre" [(ngModel)]="produit.titre" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+    <mat-label>Description</mat-label>
+      <textarea matInput name="description" [(ngModel)]="produit.description" required ></textarea>
+  
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+    <mat-label>quantite</mat-label>
+      <input matInput name="quantite" type="number"  min="0" [(ngModel)]="produit.quantite" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <mat-label>categorie</mat-label>
+        <select matNativeControl required>
+          <option *ngFor="let cat of categorie " value="cat.id">{{cat.name}}</option>
+        </select>
+      </mat-form-field>
+      
+    <div>
+       <button mat-raised-button color="primary" type="submit" [disabled]="produitForm.invalid">Enregister</button>
+    </div>
+  </form>
+  

@@ -1,0 +1,12 @@
+.button-row-style{
+    background-color: red;
+    border-radius: 4px;
+    margin: 2px;
+}
+
+    ::ng-deep .mdc-dialog--open .mat-mdc-dialog-surface {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
