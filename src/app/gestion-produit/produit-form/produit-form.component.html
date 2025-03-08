@@ -1,5 +1,5 @@
 <h5>Produit</h5>
-<form (ngSubmit)="save()">
+<form   #produitForm="ngForm"  (ngSubmit)="save()">
     <mat-form-field>
       <mat-label>Titre</mat-label>
       <input matInput name="titre" [(ngModel)]="produit.titre" required>
@@ -13,7 +13,7 @@
     <br>
     <mat-form-field>
     <mat-label>quantite</mat-label>
-      <input matInput name="quantite" type="number" [(ngModel)]="produit.quantite" required>
+      <input matInput name="quantite" type="number"  min="0" [(ngModel)]="produit.quantite" required>
     </mat-form-field>
     <br>
     <mat-form-field>
@@ -24,7 +24,7 @@
       </mat-form-field>
       
     <div>
-       <button mat-raised-button color="primary" type="submit">Enregister</button>
+       <button mat-raised-button color="primary" type="submit" [disabled]="produitForm.invalid">Enregister</button>
     </div>
   </form>
   

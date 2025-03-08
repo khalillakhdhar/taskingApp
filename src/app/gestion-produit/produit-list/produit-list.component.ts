@@ -2,11 +2,14 @@ import { Component, OnInit ,ChangeDetectorRef } from '@angular/core';
 import { ProduitService } from '../services/produit.service';
 import { Produit } from '../models/produit.model';
 import { Router } from '@angular/router';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 import {
   MatDialog,
 } from '@angular/material/dialog';
 import { ProduitFormComponent } from '../produit-form/produit-form.component';
 import { ConfirmationDialogComponentComponent } from '../confirmation-dialog-component/confirmation-dialog-component.component';
+import { validateHorizontalPosition } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-produit-list',
@@ -19,7 +22,7 @@ export class ProduitListComponent implements OnInit {
   displayedColumns: string[] = ['id', 'titre', 'description', 'quantite', 'categorie', 'actions'];
 
   constructor(private readonly produitService: ProduitService,
-    private route: Router, private dialog: MatDialog,private cdRef: ChangeDetectorRef) { }
+    private route: Router, private dialog: MatDialog,private cdRef: ChangeDetectorRef ,private _snackBar: MatSnackBar  ) { }
 
 
   ngOnInit(): void {
@@ -33,6 +36,11 @@ export class ProduitListComponent implements OnInit {
       if (data) {
         this.produitService.deleteProduit(produit_id).subscribe(() => {
           this.getProduits()
+          this._snackBar.open('Le produit a été supprimé avec succès!','Fermer',{
+            horizontalPosition:'right',
+            verticalPosition:'top' ,
+            duration: 2000
+          });
           this.cdRef.detectChanges();
         })
       }
